@@ -1,20 +1,57 @@
 [
-  { "name": "Carroms", "date": "2025-07-01", "time": "10:00 AM", "venue": "Hall A" },
-  { "name": "Chess", "date": "2025-07-01", "time": "11:00 AM", "venue": "Hall B" },
-  { "name": "Foosball", "date": "2025-07-01", "time": "12:00 PM", "venue": "Hall C" },
-  { "name": "Dart", "date": "2025-07-01", "time": "01:00 PM", "venue": "Hall D" },
-  { "name": "Fungames", "date": "2025-07-01", "time": "02:00 PM", "venue": "Playground" },
-  { "name": "Cricket", "date": "2025-07-02", "time": "09:00 AM", "venue": "Main Ground" },
-  { "name": "Football", "date": "2025-07-02", "time": "11:00 AM", "venue": "Main Ground" },
-  { "name": "Badminton", "date": "2025-07-02", "time": "01:00 PM", "venue": "Indoor Court" },
-  { "name": "Bowling", "date": "2025-07-02", "time": "03:00 PM", "venue": "Bowling Alley" },
-  { "name": "Walking race", "date": "2025-07-03", "time": "09:00 AM", "venue": "Track" },
-  { "name": "Running race", "date": "2025-07-03", "time": "10:00 AM", "venue": "Track" },
-  { "name": "Relay", "date": "2025-07-03", "time": "11:00 AM", "venue": "Track" },
-  { "name": "Shotput", "date": "2025-07-03", "time": "12:00 PM", "venue": "Field" },
-  { "name": "Frisbee", "date": "2025-07-03", "time": "01:00 PM", "venue": "Field" },
-  { "name": "Basketball shooting", "date": "2025-07-03", "time": "02:00 PM", "venue": "Basketball Court" },
-  { "name": "Penalty shootout", "date": "2025-07-03", "time": "03:00 PM", "venue": "Football Ground" },
-  { "name": "Cricket Ball Throw", "date": "2025-07-03", "time": "04:00 PM", "venue": "Field" },
-  { "name": "March past", "date": "2025-07-04", "time": "09:00 AM", "venue": "Main Ground" }
+  { "name": "Carroms", "date": "2025-07-01", "time": "10:00 AM", "venue": "Hall A", "fixtures": [
+    { "teamA": "Team Alpha", "teamB": "Team Beta", "time": "10:00 AM" },
+    { "teamA": "Team Gamma", "teamB": "Team Delta", "time": "10:30 AM" }
+  ] },
+  { "name": "Chess", "date": "2025-07-01", "time": "11:00 AM", "venue": "Hall B", "fixtures": [
+    { "teamA": "Team Epsilon", "teamB": "Team Zeta", "time": "11:00 AM" }
+  ] },
+  { "name": "Foosball", "date": "2025-07-01", "time": "12:00 PM", "venue": "Hall C", "fixtures": [
+    { "teamA": "Team Eta", "teamB": "Team Theta", "time": "12:00 PM" }
+  ] },
+  { "name": "Dart", "date": "2025-07-01", "time": "01:00 PM", "venue": "Hall D", "fixtures": [
+    { "teamA": "Team Iota", "teamB": "Team Kappa", "time": "01:00 PM" }
+  ] },
+  { "name": "Fungames", "date": "2025-07-01", "time": "02:00 PM", "venue": "Playground", "fixtures": [
+    { "teamA": "Team Lambda", "teamB": "Team Mu", "time": "02:00 PM" }
+  ] },
+  { "name": "Cricket", "date": "2025-07-02", "time": "09:00 AM", "venue": "Main Ground", "fixtures": [
+    { "teamA": "Team Nu", "teamB": "Team Xi", "time": "09:00 AM" }
+  ] },
+  { "name": "Football", "date": "2025-07-02", "time": "11:00 AM", "venue": "Main Ground", "fixtures": [
+    { "teamA": "Team Omicron", "teamB": "Team Pi", "time": "11:00 AM" }
+  ] },
+  { "name": "Badminton", "date": "2025-07-02", "time": "01:00 PM", "venue": "Indoor Court", "fixtures": [
+    { "teamA": "Team Rho", "teamB": "Team Sigma", "time": "01:00 PM" }
+  ] },
+  { "name": "Bowling", "date": "2025-07-02", "time": "03:00 PM", "venue": "Bowling Alley", "fixtures": [
+    { "teamA": "Team Tau", "teamB": "Team Upsilon", "time": "03:00 PM" }
+  ] },
+  { "name": "Walking race", "date": "2025-07-03", "time": "09:00 AM", "venue": "Track", "fixtures": [
+    { "teamA": "Team Phi", "teamB": "Team Chi", "time": "09:00 AM" }
+  ] },
+  { "name": "Running race", "date": "2025-07-03", "time": "10:00 AM", "venue": "Track", "fixtures": [
+    { "teamA": "Team Psi", "teamB": "Team Omega", "time": "10:00 AM" }
+  ] },
+  { "name": "Relay", "date": "2025-07-03", "time": "11:00 AM", "venue": "Track", "fixtures": [
+    { "teamA": "Team Alpha", "teamB": "Team Beta", "time": "11:00 AM" }
+  ] },
+  { "name": "Shotput", "date": "2025-07-03", "time": "12:00 PM", "venue": "Field", "fixtures": [
+    { "teamA": "Team Gamma", "teamB": "Team Delta", "time": "12:00 PM" }
+  ] },
+  { "name": "Frisbee", "date": "2025-07-03", "time": "01:00 PM", "venue": "Field", "fixtures": [
+    { "teamA": "Team Epsilon", "teamB": "Team Zeta", "time": "01:00 PM" }
+  ] },
+  { "name": "Basketball shooting", "date": "2025-07-03", "time": "02:00 PM", "venue": "Basketball Court", "fixtures": [
+    { "teamA": "Team Eta", "teamB": "Team Theta", "time": "02:00 PM" }
+  ] },
+  { "name": "Penalty shootout", "date": "2025-07-03", "time": "03:00 PM", "venue": "Football Ground", "fixtures": [
+    { "teamA": "Team Iota", "teamB": "Team Kappa", "time": "03:00 PM" }
+  ] },
+  { "name": "Cricket Ball Throw", "date": "2025-07-03", "time": "04:00 PM", "venue": "Field", "fixtures": [
+    { "teamA": "Team Lambda", "teamB": "Team Mu", "time": "04:00 PM" }
+  ] },
+  { "name": "March past", "date": "2025-07-04", "time": "09:00 AM", "venue": "Main Ground", "fixtures": [
+    { "teamA": "Team Nu", "teamB": "Team Xi", "time": "09:00 AM" }
+  ] }
 ]
