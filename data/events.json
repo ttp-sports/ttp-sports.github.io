@@ -1,0 +1,20 @@
+[
+  { "name": "Carroms", "date": "2025-07-01", "time": "10:00 AM", "venue": "Hall A" },
+  { "name": "Chess", "date": "2025-07-01", "time": "11:00 AM", "venue": "Hall B" },
+  { "name": "Foosball", "date": "2025-07-01", "time": "12:00 PM", "venue": "Hall C" },
+  { "name": "Dart", "date": "2025-07-01", "time": "01:00 PM", "venue": "Hall D" },
+  { "name": "Fungames", "date": "2025-07-01", "time": "02:00 PM", "venue": "Playground" },
+  { "name": "Cricket", "date": "2025-07-02", "time": "09:00 AM", "venue": "Main Ground" },
+  { "name": "Football", "date": "2025-07-02", "time": "11:00 AM", "venue": "Main Ground" },
+  { "name": "Badminton", "date": "2025-07-02", "time": "01:00 PM", "venue": "Indoor Court" },
+  { "name": "Bowling", "date": "2025-07-02", "time": "03:00 PM", "venue": "Bowling Alley" },
+  { "name": "Walking race", "date": "2025-07-03", "time": "09:00 AM", "venue": "Track" },
+  { "name": "Running race", "date": "2025-07-03", "time": "10:00 AM", "venue": "Track" },
+  { "name": "Relay", "date": "2025-07-03", "time": "11:00 AM", "venue": "Track" },
+  { "name": "Shotput", "date": "2025-07-03", "time": "12:00 PM", "venue": "Field" },
+  { "name": "Frisbee", "date": "2025-07-03", "time": "01:00 PM", "venue": "Field" },
+  { "name": "Basketball shooting", "date": "2025-07-03", "time": "02:00 PM", "venue": "Basketball Court" },
+  { "name": "Penalty shootout", "date": "2025-07-03", "time": "03:00 PM", "venue": "Football Ground" },
+  { "name": "Cricket Ball Throw", "date": "2025-07-03", "time": "04:00 PM", "venue": "Field" },
+  { "name": "March past", "date": "2025-07-04", "time": "09:00 AM", "venue": "Main Ground" }
+]

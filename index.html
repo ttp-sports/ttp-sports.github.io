@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TTP Sports 2025 Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>TTP Sports 2025</h1>
+    <p class="subtitle">Multi-Sport Championship Dashboard</p>
+    <nav>
+      <button id="nav-dashboard" class="active"><span>Dashboard</span></button>
+      <button id="nav-leaderboard"><span>Leaderboard</span></button>
+    </nav>
+  </header>
+  <main>
+    <section id="dashboard-section">
+      <div class="event-categories">
+        <section class="event-category" id="all-events">
+          <h2 class="section-title">All Events</h2>
+          <div class="category-content" id="all-events-content"></div>
+        </section>
+      </div>
+    </section>
+    <section id="leaderboard-section" style="display:none;">
+      <h2 class="section-title">Leaderboard</h2>
+      <div id="points-content" class="loading">Loading points...</div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 TTP Sports. All rights reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
