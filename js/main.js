@@ -78,13 +78,11 @@ function renderAllEvents(events) {
   });
   container.innerHTML = events.map(event => {
     const { status, badgeClass } = getEventStatus(event);
-    const participants = event.participants || 'TBD';
     return `
       <div class="event-card">
         <h3>${event.name}</h3>
         <div class="event-details">
-          <span class="status-badge ${badgeClass}">${status}</span>
-          <span class="participants">${participants} participants</span><br>
+          <span class="status-badge ${badgeClass}">${status}</span><br>
           <strong>Date:</strong> ${event.date || 'TBD'}<br>
           <strong>Time:</strong> ${event.time || 'TBD'}<br>
           <strong>Venue:</strong> ${event.venue || 'TBD'}
@@ -114,3 +112,22 @@ function showError(containerId, message) {
   const container = document.getElementById(containerId);
   container.innerHTML = `<div id="error-message">${message}</div>`;
 }
+
+// Show footer only when scrolled to bottom
+window.addEventListener('scroll', function() {
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+  const scrollY = window.scrollY || window.pageYOffset;
+  const windowHeight = window.innerHeight;
+  const bodyHeight = document.body.offsetHeight;
+  if (scrollY + windowHeight >= bodyHeight - 2) {
+    footer.style.display = '';
+  } else {
+    footer.style.display = 'none';
+  }
+});
+// Hide footer initially
+window.addEventListener('DOMContentLoaded', function() {
+  const footer = document.querySelector('footer');
+  if (footer) footer.style.display = 'none';
+});

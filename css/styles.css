@@ -247,7 +247,10 @@ main, #dashboard-section, #leaderboard-section {
 }
 
 footer {
-  background: rgba(255,255,255,0.90);
+  /* Make footer transparent and overlay */
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
   position: fixed;
   left: 0;
   bottom: 0;
