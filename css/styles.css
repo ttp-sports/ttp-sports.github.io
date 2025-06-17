@@ -231,7 +231,7 @@ header button span {
 /* Background and color changes */
 body {
   /* Stadium with lights background image, dark overlay for readability, using .webp for performance */
-  background: linear-gradient(rgba(20,30,50,0.7), rgba(20,30,50,0.7)), url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?auto=format&fit=crop&w=600&q=80&fm=webp') no-repeat center center fixed;
+  background: linear-gradient(rgba(20,30,50,0.7), rgba(20,30,50,0.7)), url('https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9??auto=format&fit=crop&w=1500&q=80&fm=webp') no-repeat center center fixed;
   background-size: cover;
   color: var(--on-surface);
 }
@@ -247,10 +247,7 @@ main, #dashboard-section, #leaderboard-section {
 }
 
 footer {
-  /* Make footer transparent and overlay */
-  background: transparent !important;
-  box-shadow: none !important;
-  color: #fff !important;
+  background: rgba(255,255,255,0.90);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -268,27 +265,12 @@ body {
 @media (max-width: 900px) {
   .dashboard-summary { gap: 1rem; }
   .summary-card { padding: 1rem 1.2rem; }
-  .event-card {
-    min-width: 140px;
-    max-width: 100%;
-    padding: 1.1rem 0.7rem 0.9rem 0.7rem;
-  }
+  .event-card { min-width: 140px; max-width: 100%; }
 }
 @media (max-width: 600px) {
   main { padding: 0.5rem; }
   #schedule-content, #points-content { flex-direction: column; gap: 0.7rem; }
-  .event-card {
-    min-width: 0;
-    max-width: 100%;
-    padding: 0.8rem 0.3rem 0.7rem 0.3rem;
-    border-radius: 14px;
-  }
-  .event-card h3 {
-    font-size: 1.08rem;
-  }
-  .event-details {
-    font-size: 0.98rem;
-  }
+  .event-card, .team-card { min-width: 0; max-width: 100%; }
   header nav { flex-direction: column; gap: 0.5rem; }
   header button { width: 100%; }
   .dashboard-summary { flex-direction: column; align-items: center; }
@@ -315,59 +297,26 @@ h2.section-title {
   flex: 1 1 220px;
   max-width: 260px;
 }
-
-.event-card {
-  background: linear-gradient(135deg, #fff 70%, #e3f0ff 100%);
-  box-shadow: 0 4px 18px rgba(25, 118, 210, 0.10), 0 1.5px 6px rgba(33,33,33,0.06);
-  border-radius: 20px;
-  border: 1.5px solid rgba(25,118,210,0.08);
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-  flex: 1 1 260px;
-  min-width: 220px;
-  max-width: 340px;
-  margin-bottom: 0.5rem;
-  position: relative;
-  transition: box-shadow 0.25s, transform 0.22s, background 0.22s;
-  cursor: pointer;
-  overflow: hidden;
+.event-card-content {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
 }
-.event-card:hover, .event-card:focus {
-  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18), 0 2.5px 12px rgba(33,33,33,0.10);
-  transform: translateY(-3px) scale(1.025);
-  background: linear-gradient(135deg, #e3f0ff 60%, #fff 100%);
+.event-card .event-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  color: #1976d2;
+  margin-left: 1.2rem;
+  min-width: 2.2rem;
+  min-height: 2.2rem;
+  align-self: flex-start;
 }
-.event-card h3 {
-  margin-bottom: 0.7rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--primary-dark);
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 0 #fff, 0 2px 8px rgba(25,118,210,0.08);
-}
-.event-details {
-  font-size: 1.05rem;
-  color: #333;
-  margin-bottom: 0.7rem;
-}
-.status-badge {
-  display: inline-block;
-  padding: 0.22rem 0.9rem;
-  border-radius: 14px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  margin-right: 0.5rem;
-  margin-top: 0.2rem;
-  box-shadow: 0 1px 4px rgba(25,118,210,0.08);
-  letter-spacing: 0.5px;
-}
-.event-card .fixtures {
-  margin-top: 0.7rem;
-  background: rgba(25,118,210,0.04);
-  border-radius: 10px;
-  padding: 0.7rem 1rem;
-  font-size: 0.98rem;
-  box-shadow: 0 1px 4px rgba(25,118,210,0.04);
+@media (max-width: 600px) {
+  .event-card .event-icon {
+    font-size: 1.7rem;
+    min-width: 1.7rem;
+    min-height: 1.7rem;
+  }
 }

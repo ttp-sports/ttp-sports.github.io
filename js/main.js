@@ -1,3 +1,25 @@
+// Helper: map event id to icon (using Material Symbols)
+const eventIcons = {
+  carroms: 'casino',                    // Board game icon
+  chess: 'chess',                       // Casino/board games (closest available)
+  foosball: 'sports_soccer',            // Soccer icon works well for foosball
+  dart: 'gps_fixed',                    // Target/precision icon
+  fungames: 'celebration',              // Party/fun icon
+  cricket: 'sports_cricket',            // Perfect match
+  football: 'sports_and_outdoors',      // Football icon
+  badminton: 'sports_tennis',           // Tennis racket icon (closest for racket sports)
+  bowling: 'album',                     // Circular icon representing bowling ball
+  'walking-race': 'directions_walk',    // Walking person icon
+  'running-race': 'directions_run',     // Running person icon
+  relay: 'swap_horiz',                  // Horizontal swap/exchange icon
+  shotput: 'circle',            // Gym/strength training icon
+  frisbee: 'album',                     // Disc-shaped icon
+  'basketball-shooting': 'sports_basketball', // Perfect match
+  'penalty-shootout': 'sports_soccer',  // Soccer icon for penalty kicks
+  'cricket-ball-throw': 'sports_cricket', // Cricket icon for cricket-related events
+  'march-past': 'emoji_people'          // People/parade icon
+};
+
 // Navigation logic
 const navDashboard = document.getElementById('nav-dashboard');
 const navLeaderboard = document.getElementById('nav-leaderboard');
@@ -89,14 +111,13 @@ function renderAllEvents(events) {
     }
     return `
       <div class="event-card" data-id="${event.id}" tabindex="0" aria-label="View details for ${event.name}">
-        <h3>${event.name}</h3>
-        <div class="event-details">
-          <span class="status-badge ${badgeClass}">${status}</span><br>
-          <strong>Date:</strong> ${event.date || 'TBD'}<br>
-          <strong>Time:</strong> ${event.time || 'TBD'}<br>
-          <strong>Venue:</strong> ${event.venue || 'TBD'}
+        <div class="event-card-content" style="display: flex; align-items: flex-start; width: 100%;">
+          <div style="flex:1; display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem;">
+            <h3 style="margin: 0;">${event.name}</h3>
+            <span class="status-badge ${badgeClass}" style="margin-top: 0.2rem;">${status}</span>
+          </div>
+          <span class="event-icon material-symbols-outlined" style="font-size:2.2rem; margin-left: 1.2rem; align-self: flex-start;">${eventIcons[event.id] || 'sports'}</span>
         </div>
-        ${fixturesHtml}
       </div>
     `;
   }).join('');
