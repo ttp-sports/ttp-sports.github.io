@@ -97,36 +97,69 @@
           container.innerHTML = '<div class="loading">Event not found.</div>';
           return;
         }
-        container.innerHTML = `
-          <div class="event-detail-title">${event.name}</div>
-          ${Array.isArray(event.fixtures) && event.fixtures.length > 0 ? `
-            <div class='fixtures-list'>
-              <strong>Fixtures:</strong>
-              <table class="fixtures-table" style="width:100%;margin-top:0.7rem;border-collapse:collapse;">
-                <thead>
-                  <tr style="background:#e3f0ff;">
-                    <th style="padding:6px 8px;text-align:left;">Team A</th>
-                    <th style="padding:6px 8px;text-align:left;">Team B</th>
-                    <th style="padding:6px 8px;text-align:left;">Time</th>
-                    <th style="padding:6px 8px;text-align:left;">Date</th>
-                    <th style="padding:6px 8px;text-align:left;">Venue</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${event.fixtures.map(f => `
+        if (event.categories && Array.isArray(event.categories)) {
+          container.innerHTML = `
+            <div class="event-detail-title">${event.name}</div>
+            ${event.categories.map(cat => `
+              <div class='fixtures-list'>
+                <strong>${cat.label} Fixtures:</strong>
+                <table class="fixtures-table">
+                  <thead>
                     <tr>
-                      <td style="padding:6px 8px;">${f.teamA}</td>
-                      <td style="padding:6px 8px;">${f.teamB}</td>
-                      <td style="padding:6px 8px;">${f.time || event.time || 'TBD'}</td>
-                      <td style="padding:6px 8px;">${event.date || 'TBD'}</td>
-                      <td style="padding:6px 8px;">${event.venue || 'TBD'}</td>
+                      <th>Team A</th>
+                      <th>Team B</th>
+                      <th>Time</th>
+                      <th>Date</th>
+                      <th>Venue</th>
                     </tr>
-                  `).join('')}
-                </tbody>
-              </table>
-            </div>
-          ` : ''}
-        `;
+                  </thead>
+                  <tbody>
+                    ${(cat.fixtures || []).map(f => `
+                      <tr>
+                        <td>${f.teamA}</td>
+                        <td>${f.teamB}</td>
+                        <td>${f.time || cat.time || 'TBD'}</td>
+                        <td>${cat.date || 'TBD'}</td>
+                        <td>${cat.venue || 'TBD'}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            `).join('')}
+          `;
+        } else {
+          container.innerHTML = `
+            <div class="event-detail-title">${event.name}</div>
+            ${Array.isArray(event.fixtures) && event.fixtures.length > 0 ? `
+              <div class='fixtures-list'>
+                <strong>Fixtures:</strong>
+                <table class="fixtures-table">
+                  <thead>
+                    <tr>
+                      <th>Team A</th>
+                      <th>Team B</th>
+                      <th>Time</th>
+                      <th>Date</th>
+                      <th>Venue</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${event.fixtures.map(f => `
+                      <tr>
+                        <td>${f.teamA}</td>
+                        <td>${f.teamB}</td>
+                        <td>${f.time || event.time || 'TBD'}</td>
+                        <td>${event.date || 'TBD'}</td>
+                        <td>${event.venue || 'TBD'}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            ` : ''}
+          `;
+        }
       })
       .catch(() => {
         document.getElementById('event-detail-container').innerHTML = '<div class="loading">Unable to load event details.</div>';

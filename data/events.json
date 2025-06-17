@@ -1,57 +1,110 @@
 [
-  { "id": "carroms", "name": "Carroms", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Alpha", "teamB": "Team Beta", "time": "TBD" },
-    { "teamA": "Team Gamma", "teamB": "Team Delta", "time": "TBD" }
+  { "id": "carroms", "name": "Carroms", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Alpha", "teamB": "Team Beta", "date": "TBD", "time": "TBD", "venue": "TBD" },
+      { "teamA": "Team Alpha2", "teamB": "Team Beta2", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [
+      { "teamA": "Team Gamma", "teamB": "Team Delta", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] }
   ] },
-  { "id": "chess", "name": "Chess", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Epsilon", "teamB": "Team Zeta", "time": "TBD" }
+  { "id": "chess", "name": "Chess", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Epsilon", "teamB": "Team Zeta", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "foosball", "name": "Foosball", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Eta", "teamB": "Team Theta", "time": "TBD" }
+  { "id": "foosball", "name": "Foosball", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Eta", "teamB": "Team Theta", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "dart", "name": "Dart", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Iota", "teamB": "Team Kappa", "time": "TBD" }
+  { "id": "dart", "name": "Dart", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Iota", "teamB": "Team Kappa", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "fungames", "name": "Fungames", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Lambda", "teamB": "Team Mu", "time": "TBD" }
+  { "id": "fungames", "name": "Fungames", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Lambda", "teamB": "Team Mu", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "cricket", "name": "Cricket", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Nu", "teamB": "Team Xi", "time": "TBD" }
+  { "id": "cricket", "name": "Cricket", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Nu", "teamB": "Team Xi", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "football", "name": "Football", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Omicron", "teamB": "Team Pi", "time": "TBD" }
+  { "id": "football", "name": "Football", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Omicron", "teamB": "Team Pi", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "badminton", "name": "Badminton", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Rho", "teamB": "Team Sigma", "time": "TBD" }
+  { "id": "badminton", "name": "Badminton", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Rho", "teamB": "Team Sigma", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "bowling", "name": "Bowling", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Tau", "teamB": "Team Upsilon", "time": "TBD" }
+  { "id": "bowling", "name": "Bowling", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Tau", "teamB": "Team Upsilon", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "walking-race", "name": "Walking race", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Phi", "teamB": "Team Chi", "time": "TBD" }
+  { "id": "walking-race", "name": "Walking race", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Phi", "teamB": "Team Chi", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "running-race", "name": "Running race", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Psi", "teamB": "Team Omega", "time": "TBD" }
+  { "id": "running-race", "name": "Running race", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Psi", "teamB": "Team Omega", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "relay", "name": "Relay", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Alpha", "teamB": "Team Beta", "time": "TBD" }
+  { "id": "relay", "name": "Relay", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Alpha", "teamB": "Team Beta", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "shotput", "name": "Shotput", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Gamma", "teamB": "Team Delta", "time": "TBD" }
+  { "id": "shotput", "name": "Shotput", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Gamma", "teamB": "Team Delta", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "frisbee", "name": "Frisbee", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Epsilon", "teamB": "Team Zeta", "time": "TBD" }
+  { "id": "frisbee", "name": "Frisbee", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Epsilon", "teamB": "Team Zeta", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "basketball-shooting", "name": "Basketball shooting", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Eta", "teamB": "Team Theta", "time": "TBD" }
+  { "id": "basketball-shooting", "name": "Basketball shooting", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Eta", "teamB": "Team Theta", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "penalty-shootout", "name": "Penalty shootout", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Iota", "teamB": "Team Kappa", "time": "TBD" }
+  { "id": "penalty-shootout", "name": "Penalty shootout", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Iota", "teamB": "Team Kappa", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "cricket-ball-throw", "name": "Cricket Ball Throw", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Lambda", "teamB": "Team Mu", "time": "TBD" }
+  { "id": "cricket-ball-throw", "name": "Cricket Ball Throw", "categories": [
+    { "label": "Men", "fixtures": [
+      { "teamA": "Team Lambda", "teamB": "Team Mu", "date": "TBD", "time": "TBD", "venue": "TBD" }
+    ] },
+    { "label": "Women", "fixtures": [] }
   ] },
-  { "id": "march-past", "name": "March past", "date": "TBD", "time": "TBD", "venue": "TBD", "fixtures": [
-    { "teamA": "Team Nu", "teamB": "Team Xi", "time": "TBD" }
+  { "id": "march-past", "name": "March past", "fixtures": [
+    { "teamA": "Team Nu", "teamB": "Team Xi", "date": "TBD", "time": "TBD", "venue": "TBD" }
   ] }
 ]
