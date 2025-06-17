@@ -75,8 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getEventStatus(event) {
-  // Assumes event.date is YYYY-MM-DD and event.time is in 12hr format
-  if (!event.date || !event.time) return { status: 'Upcoming', badgeClass: 'status-upcoming' };
+  // If date or time is missing or set to TBD, always show as Upcoming
+  if (!event.date || !event.time || event.date === 'TBD' || event.time === 'TBD') {
+    return { status: 'Upcoming', badgeClass: 'status-upcoming' };
+  }
   const now = new Date();
   const eventStart = new Date(`${event.date} ${event.time}`);
   // Assume each event lasts 2 hours for demo
