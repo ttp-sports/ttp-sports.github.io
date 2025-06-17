@@ -1,23 +1,23 @@
-// Helper: map event id to icon (using Material Symbols)
+// Helper: map event id to icon (using Tabler Icons)
 const eventIcons = {
-  carroms: 'casino',                    // Board game icon
-  chess: 'chess',                       // Casino/board games (closest available)
-  foosball: 'sports_soccer',            // Soccer icon works well for foosball
-  dart: 'gps_fixed',                    // Target/precision icon
-  fungames: 'celebration',              // Party/fun icon
-  cricket: 'sports_cricket',            // Perfect match
-  football: 'sports_and_outdoors',      // Football icon
-  badminton: 'sports_tennis',           // Tennis racket icon (closest for racket sports)
-  bowling: 'album',                     // Circular icon representing bowling ball
-  'walking-race': 'directions_walk',    // Walking person icon
-  'running-race': 'directions_run',     // Running person icon
-  relay: 'swap_horiz',                  // Horizontal swap/exchange icon
-  shotput: 'circle',            // Gym/strength training icon
-  frisbee: 'album',                     // Disc-shaped icon
-  'basketball-shooting': 'sports_basketball', // Perfect match
-  'penalty-shootout': 'sports_soccer',  // Soccer icon for penalty kicks
-  'cricket-ball-throw': 'sports_cricket', // Cricket icon for cricket-related events
-  'march-past': 'emoji_people'          // People/parade icon
+  carroms: 'ti-box-model',
+  chess: 'ti-chess-queen',
+  foosball: 'ti-soccer-field',
+  dart: 'ti-target-arrow',
+  fungames: 'ti-confetti',
+  cricket: 'ti-cricket',
+  football: 'ti-ball-football',
+  badminton: 'ti-table',
+  bowling: 'ti-bowling',
+  'walking-race': 'ti-walk',
+  'running-race': 'ti-run',
+  relay: 'ti-arrows-exchange',
+  shotput: 'ti-play-handball',
+  frisbee: 'ti-disc',
+  'basketball-shooting': 'ti-ball-basketball',
+  'penalty-shootout': 'ti-ball-football',
+  'cricket-ball-throw': 'ti-bounce-right',
+  'march-past': 'ti-users-group'
 };
 
 // Navigation logic
@@ -116,7 +116,7 @@ function renderAllEvents(events) {
             <h3 style="margin: 0;">${event.name}</h3>
             <span class="status-badge ${badgeClass}" style="margin-top: 0.2rem;">${status}</span>
           </div>
-          <span class="event-icon material-symbols-outlined" style="font-size:2.2rem; margin-left: 1.2rem; align-self: flex-start;">${eventIcons[event.id] || 'sports'}</span>
+          <span class="event-icon"><i class="ti ${eventIcons[event.id] || 'ti-trophy'}"></i></span>
         </div>
       </div>
     `;
