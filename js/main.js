@@ -78,10 +78,9 @@ function renderAllEvents(events) {
   });
   container.innerHTML = events.map((event, idx) => {
     const { status, badgeClass } = getEventStatus(event);
-    // Render fixtures section, hidden by default
     let fixturesHtml = '';
     if (Array.isArray(event.fixtures) && event.fixtures.length > 0) {
-      fixturesHtml = `<div class="fixtures" id="fixtures-${idx}" style="display:none; margin-top:10px;">
+      fixturesHtml = `<div class="fixtures" id="fixtures-${event.id}" style="display:none; margin-top:10px;">
         <strong>Fixtures:</strong>
         <ul style="margin:0; padding-left:18px;">
           ${event.fixtures.map(f => `<li>${f.teamA} vs ${f.teamB} <span style='color:#888;'>(${f.time})</span></li>`).join('')}
@@ -89,7 +88,7 @@ function renderAllEvents(events) {
       </div>`;
     }
     return `
-      <div class="event-card" data-idx="${idx}" style="cursor:pointer;">
+      <div class="event-card" data-id="${event.id}" tabindex="0" aria-label="View details for ${event.name}">
         <h3>${event.name}</h3>
         <div class="event-details">
           <span class="status-badge ${badgeClass}">${status}</span><br>
@@ -102,15 +101,17 @@ function renderAllEvents(events) {
     `;
   }).join('');
 
-  // Add click listeners to event cards to toggle fixtures
+  // Add click and keyboard listeners to event cards for navigation
   Array.from(container.getElementsByClassName('event-card')).forEach(card => {
     card.addEventListener('click', function(e) {
-      // Prevent toggling if clicking a link or button inside
       if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-      const idx = card.getAttribute('data-idx');
-      const fixturesDiv = document.getElementById(`fixtures-${idx}`);
-      if (fixturesDiv) {
-        fixturesDiv.style.display = fixturesDiv.style.display === 'none' ? '' : 'none';
+      const id = card.getAttribute('data-id');
+      window.location.href = `event-detail.html?event=${encodeURIComponent(id)}`;
+    });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
       }
     });
   });

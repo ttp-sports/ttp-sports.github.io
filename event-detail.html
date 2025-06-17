@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details | TTP Sports 2025</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .event-detail-container {
+      max-width: 600px;
+      margin: 2.5rem auto;
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(25,118,210,0.10);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      min-height: 350px;
+    }
+    .event-detail-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .event-detail-meta {
+      font-size: 1.1rem;
+      color: #333;
+      text-align: center;
+    }
+    .fixtures-list {
+      margin-top: 1.2rem;
+      background: rgba(25,118,210,0.04);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      font-size: 1.05rem;
+      box-shadow: 0 1px 4px rgba(25,118,210,0.04);
+    }
+    .fixtures-list ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .fixtures-list li {
+      margin-bottom: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: color 0.18s;
+    }
+    .back-link:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="event-detail-container" id="event-detail-container">
+      <div class="loading">Loading event details...</div>
+    </div>
+    <a href="index.html" class="back-link">&larr; Back to All Events</a>
+  </main>
+  <script>
+    // Utility to get query param
+    function getQueryParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+    // Fetch event data and render
+    fetch('data/events.json')
+      .then(res => res.json())
+      .then(events => {
+        const eventId = getQueryParam('event');
+        const event = events.find(ev => ev.id === eventId);
+        const container = document.getElementById('event-detail-container');
+        if (!event) {
+          container.innerHTML = '<div class="loading">Event not found.</div>';
+          return;
+        }
+        container.innerHTML = `
+          <div class="event-detail-title">${event.name}</div>
+          <div class="event-detail-meta">
+            <strong>Date:</strong> ${event.date || 'TBD'}<br>
+            <strong>Time:</strong> ${event.time || 'TBD'}<br>
+            <strong>Venue:</strong> ${event.venue || 'TBD'}
+          </div>
+          ${Array.isArray(event.fixtures) && event.fixtures.length > 0 ? `
+            <div class='fixtures-list'>
+              <strong>Fixtures:</strong>
+              <ul>
+                ${event.fixtures.map(f => `<li>${f.teamA} vs ${f.teamB} <span style='color:#888;'>(${f.time})</span></li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+        `;
+      })
+      .catch(() => {
+        document.getElementById('event-detail-container').innerHTML = '<div class="loading">Unable to load event details.</div>';
+      });
+  </script>
+</body>
+</html>
