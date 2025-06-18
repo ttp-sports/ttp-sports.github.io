@@ -157,27 +157,41 @@ footer {
 
 /* Card styles for events and teams */
 .event-card, .team-card {
-  background: rgba(255,255,255,0.82);
-  box-shadow: var(--elevation-1);
-  border-radius: 16px;
-  border: 1px solid rgba(0,0,0,0.04);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18), 0 2.5px 12px rgba(33,33,33,0.10);
   padding: 1.5rem 1.2rem;
   flex: 1 1 260px;
   min-width: 220px;
   max-width: 320px;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow 0.25s, transform 0.22s, background 0.22s;
   margin-bottom: 0.5rem;
   position: relative;
+  color: #f1f5fa;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 0 #222;
 }
-.event-card:hover, .team-card:hover {
-  box-shadow: var(--elevation-2);
-  transform: translateY(-2px) scale(1.02);
+.event-card:hover, .event-card:focus {
+  box-shadow: 0 12px 36px rgba(25, 118, 210, 0.22), 0 4px 16px rgba(33,33,33,0.13);
+  background: rgba(255,255,255,0.22);
 }
 .event-card h3, .team-card h3 {
   margin-bottom: 0.7rem;
   font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--primary);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.22), 0 3px 0 #222;
+  letter-spacing: 0.2px;
+}
+.event-card .event-icon, .event-icon .ti {
+  color: #fff;
+  background: linear-gradient(135deg, #3B82F6 60%, #6366F1 100%);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.22), 0 1px 0 #222;
+  border-radius: 50%;
+  padding: 0.18em;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.18);
 }
 .event-details, .team-details {
   font-size: 1rem;
@@ -193,10 +207,31 @@ footer {
   font-weight: 500;
   margin-right: 0.5rem;
   margin-top: 0.2rem;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(25,118,210,0.18), 0 1px 0 #222;
 }
-.status-live { background: #e53935; color: #fff; }
-.status-upcoming { background: #ffb300; color: #fff; }
-.status-completed { background: #43a047; color: #fff; }
+.status-badge {
+  color: #fff;
+  background: linear-gradient(90deg, #6366F1 60%, #3B82F6 100%);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.22), 0 1px 0 #222;
+  border: 1px solid rgba(99,102,241,0.13);
+  box-shadow: 0 1px 4px rgba(99,102,241,0.10);
+}
+.status-badge.status-upcoming {
+  background: linear-gradient(90deg, #fbbf24 60%, #fde68a 100%);
+  color: #7c4700;
+  text-shadow: 0 2px 8px rgba(251,191,36,0.18), 0 1px 0 #fff;
+}
+.status-badge.status-live {
+  background: linear-gradient(90deg, #ef4444 60%, #f87171 100%);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(239,68,68,0.18), 0 1px 0 #fff;
+}
+.status-badge.status-completed {
+  background: linear-gradient(90deg, #22c55e 60%, #bbf7d0 100%);
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(34,197,94,0.18), 0 1px 0 #fff;
+}
 
 /* Participants styles */
 .participants {
