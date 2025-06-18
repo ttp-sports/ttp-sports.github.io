@@ -146,14 +146,30 @@ function renderPoints(points) {
     container.innerHTML = '<div class="loading">No points data available.</div>';
     return;
   }
-  container.innerHTML = points.map(team => `
-    <div class="team-card">
-      <h3>${team.team}</h3>
-      <div class="team-details">
-        <strong>Points:</strong> ${team.points}
+  // Sort by points descending
+  const sorted = [...points].sort((a, b) => b.points - a.points);
+  const maxPoints = sorted[0]?.points || 1;
+  const teamColors = ['team-a', 'team-b', 'team-c', 'team-d', 'team-e', 'team-f'];
+  container.innerHTML = `
+    <div class="leaderboard-container">
+      <div class="leaderboard-card">
+        ${sorted.map((team, i) => `
+          <div class="team-entry${i === 0 ? ' winner' : ''}">
+            <div class="rank-badge">${i + 1}</div>
+            <div class="team-header">
+              <h2>${i === 0 ? '🥇 ' : i === 1 ? '👥 ' : ''}${team.team}${i === 0 ? ' <span class=\"leader-badge\">LEADER</span>' : ''}</h2>
+              <div class="points">${team.points.toLocaleString()} <span>points</span></div>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar ${teamColors[i % teamColors.length]}" style="width:${(team.points / maxPoints) * 100}%">
+                <span>${((team.points / maxPoints) * 100).toFixed(1)}%</span>
+              </div>
+            </div>
+          </div>
+        `).join('')}
       </div>
     </div>
-  `).join('');
+  `;
 }
 
 function showError(containerId, message) {
