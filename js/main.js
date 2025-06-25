@@ -159,14 +159,16 @@ function renderPoints(points) {
   const sorted = [...points].sort((a, b) => b.points - a.points);
   const maxPoints = sorted[0]?.points || 1;
   const teamColors = ['team-a', 'team-b', 'team-c', 'team-d', 'team-e', 'team-f'];
+  // Check if there is a unique leader
+  const isUniqueLeader = sorted.length > 1 ? sorted[0].points > sorted[1].points : true;
   container.innerHTML = `
     <div class="leaderboard-container">
       <div class="leaderboard-card">
         ${sorted.map((team, i) => `
-          <div class="team-entry${i === 0 ? ' winner' : ''}">
+          <div class="team-entry${i === 0 && isUniqueLeader ? ' winner' : ''}">
             <div class="rank-badge">${i + 1}</div>
             <div class="team-header" style="margin-left:2.5rem;">
-              <h2>${i === 0 ? '🥇 ' : i === 1 ? '🥈 ' : ''}${team.team}${i === 0 ? ' <span class=\"leader-badge\">LEADER</span>' : ''}</h2>
+              <h2>${i === 0 ? '🥇 ' : i === 1 ? '🥈 ' : ''}${team.team}${i === 0 && isUniqueLeader ? ' <span class=\"leader-badge\">LEADING</span> 👑' : ''}</h2>
               <div class="points">${team.points.toLocaleString()} <span>points</span></div>
             </div>
             <div class="progress-container">
