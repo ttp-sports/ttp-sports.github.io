@@ -1,4 +1,10 @@
 [
-  { "team": "Team A", "points": 100 },
-  { "team": "Team B", "points": 125 }
+  {
+    "team": "Team A",
+    "points": 0
+  },
+  {
+    "team": "Team B",
+    "points": 0
+  }
 ]

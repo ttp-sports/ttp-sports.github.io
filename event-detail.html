@@ -119,8 +119,8 @@
                         <td>${f.teamA}</td>
                         <td>${f.teamB}</td>
                         <td>${f.time || cat.time || 'TBD'}</td>
-                        <td>${cat.date || 'TBD'}</td>
-                        <td>${cat.venue || 'TBD'}</td>
+                        <td>${f.date || cat.date || 'TBD'}</td>
+                        <td>${f.venue || cat.venue || 'TBD'}</td>
                       </tr>
                     `).join('')}
                   </tbody>
