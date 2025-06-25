@@ -78,7 +78,7 @@
     <div class="event-detail-container" id="event-detail-container">
       <div class="loading">Loading event details...</div>
     </div>
-    <a href="index.html" class="back-link">&larr; Back to All Events</a>
+    <a href="index.html#dashboard" class="back-link">&larr; Back to All Events</a>
   </main>
   <script>
     // Utility to get query param
@@ -164,6 +164,15 @@
       .catch(() => {
         document.getElementById('event-detail-container').innerHTML = '<div class="loading">Unable to load event details.</div>';
       });
+    // Add script to switch to dashboard tab if #dashboard is present
+    if (window.location.hash === '#dashboard') {
+      window.addEventListener('DOMContentLoaded', function() {
+        try {
+          const navDashboard = window.parent ? window.parent.document.getElementById('nav-dashboard') : document.getElementById('nav-dashboard');
+          if (navDashboard) navDashboard.click();
+        } catch(e) {}
+      });
+    }
   </script>
 </body>
 </html>

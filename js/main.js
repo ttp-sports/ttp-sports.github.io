@@ -27,12 +27,14 @@ const dashboardSection = document.getElementById('dashboard-section');
 const leaderboardSection = document.getElementById('leaderboard-section');
 
 navDashboard.addEventListener('click', () => {
+  window.location.hash = '#dashboard';
   navDashboard.classList.add('active');
   navLeaderboard.classList.remove('active');
   dashboardSection.style.display = '';
   leaderboardSection.style.display = 'none';
 });
 navLeaderboard.addEventListener('click', () => {
+  window.location.hash = '#leaderboard';
   navLeaderboard.classList.add('active');
   navDashboard.classList.remove('active');
   dashboardSection.style.display = 'none';
@@ -63,6 +65,13 @@ navLeaderboard.addEventListener('click', () => {
 
 // Fetch and render event schedule
 document.addEventListener('DOMContentLoaded', () => {
+  // Switch to dashboard tab if hash is #dashboard
+  if (window.location.hash === '#dashboard') {
+    navDashboard.classList.add('active');
+    navLeaderboard.classList.remove('active');
+    dashboardSection.style.display = '';
+    leaderboardSection.style.display = 'none';
+  }
   fetch('data/events.json')
     .then(res => res.json())
     .then(data => renderAllEvents(data))
