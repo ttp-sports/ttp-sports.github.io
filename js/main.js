@@ -83,18 +83,107 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(() => showError('points-content', 'Unable to load team points.'));
 });
 
-function getEventStatus(event) {
-  // If date or time is missing or set to TBD, always show as Upcoming
-  if (!event.date || !event.time || event.date === 'TBD' || event.time === 'TBD') {
-    return { status: 'Upcoming', badgeClass: 'status-upcoming' };
+function parseDateTime(dateStr, timeStr) {
+  // Accepts MM/DD/YYYY or YYYY-MM-DD and time like '2pm' or '14:00'
+  if (!dateStr || !timeStr || dateStr === 'TBD' || timeStr === 'TBD') return null;
+  let [month, day, year] = [null, null, null];
+  if (/^\d{2}\/\d{2}\/\d{4}$/.test(dateStr)) {
+    // MM/DD/YYYY
+    [month, day, year] = dateStr.split('/').map(Number);
+    return new Date(year, month - 1, day, ...parseTime(timeStr));
+  } else if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+    // YYYY-MM-DD
+    [year, month, day] = dateStr.split('-').map(Number);
+    return new Date(year, month - 1, day, ...parseTime(timeStr));
   }
+  return new Date(`${dateStr} ${timeStr}`); // fallback
+}
+function parseTime(timeStr) {
+  // Returns [hour, minute] from '2pm', '14:00', etc.
+  if (!timeStr) return [0, 0];
+  let t = timeStr.trim().toLowerCase();
+  if (t.match(/am|pm/)) {
+    let [h, m] = t.replace(/am|pm/, '').split(':');
+    h = Number(h);
+    m = m ? Number(m) : 0;
+    if (t.includes('pm') && h < 12) h += 12;
+    if (t.includes('am') && h === 12) h = 0; // 12am is 0, 12pm is 12
+    return [h, m];
+  } else if (t.includes(':')) {
+    let [h, m] = t.split(':').map(Number);
+    return [h, m];
+  } else {
+    let h = Number(t);
+    return [isNaN(h) ? 0 : h, 0];
+  }
+}
+function getFixtureStatus(fixture) {
+  if (!fixture.date || !fixture.time || fixture.date === 'TBD' || fixture.time === 'TBD') return 'TBD';
   const now = new Date();
-  const eventStart = new Date(`${event.date} ${event.time}`);
-  // Assume each event lasts 2 hours for demo
-  const eventEnd = new Date(eventStart.getTime() + 2 * 60 * 60 * 1000);
-  if (now < eventStart) return { status: 'Upcoming', badgeClass: 'status-upcoming' };
-  if (now >= eventStart && now <= eventEnd) return { status: 'Live', badgeClass: 'status-live' };
-  return { status: 'Completed', badgeClass: 'status-completed' };
+  const start = parseDateTime(fixture.date, fixture.time);
+  if (!start || isNaN(start.getTime())) return 'TBD';
+  if (now < start) return 'upcoming';
+  if (now >= start && now <= new Date(start.getTime() + 2 * 60 * 60 * 1000)) return 'live';
+  return 'completed';
+}
+
+function getEventSortKey(event) {
+  // Gather all fixture dates
+  let allFixtures = [];
+  if (Array.isArray(event.categories)) {
+    event.categories.forEach(cat => {
+      if (Array.isArray(cat.fixtures)) allFixtures = allFixtures.concat(cat.fixtures);
+    });
+  } else if (Array.isArray(event.fixtures)) {
+    allFixtures = event.fixtures;
+  }
+  let hasUpcoming = false, hasTBD = false, mostRecent = null;
+  for (const fix of allFixtures) {
+    const status = getFixtureStatus(fix);
+    if (status === 'TBD') hasTBD = true;
+    else if (status === 'upcoming' || status === 'live') {
+      hasUpcoming = true;
+      const dt = parseDateTime(fix.date, fix.time);
+      if (dt && (!mostRecent || dt < mostRecent)) mostRecent = dt;
+    }
+  }
+  // Sort key: [0, date] for upcoming, [1, date] for completed, [2, 0] for TBD
+  if (hasUpcoming && mostRecent) return [0, mostRecent.getTime()];
+  if (!hasUpcoming && !hasTBD && allFixtures.length > 0) {
+    // All completed, use latest fixture date
+    let latest = null;
+    for (const fix of allFixtures) {
+      if (fix.date && fix.time && fix.date !== 'TBD' && fix.time !== 'TBD') {
+        const dt = parseDateTime(fix.date, fix.time);
+        if (dt && (!latest || dt > latest)) latest = dt;
+      }
+    }
+    return [1, latest ? latest.getTime() : 0];
+  }
+  return [2, 0]; // TBD
+}
+
+function getEventStatus(event) {
+  // Use fixture-level status
+  let allFixtures = [];
+  if (Array.isArray(event.categories)) {
+    event.categories.forEach(cat => {
+      if (Array.isArray(cat.fixtures)) allFixtures = allFixtures.concat(cat.fixtures);
+    });
+  } else if (Array.isArray(event.fixtures)) {
+    allFixtures = event.fixtures;
+  }
+  let hasLive = false, hasUpcoming = false, hasTBD = false;
+  for (const fix of allFixtures) {
+    const status = getFixtureStatus(fix);
+    if (status === 'live') hasLive = true;
+    else if (status === 'upcoming') hasUpcoming = true;
+    else if (status === 'TBD') hasTBD = true;
+  }
+  if (hasLive) return { status: 'Live', badgeClass: 'status-live' };
+  if (hasUpcoming) return { status: 'Upcoming', badgeClass: 'status-upcoming' };
+  if (!hasUpcoming && !hasTBD && allFixtures.length > 0) return { status: 'Completed', badgeClass: 'status-completed' };
+  return { status: 'Upcoming', badgeClass: 'status-upcoming' };
 }
 
 function renderAllEvents(events) {
@@ -103,11 +192,12 @@ function renderAllEvents(events) {
     container.innerHTML = '<div class="loading">No events scheduled.</div>';
     return;
   }
-  // Sort by date and time
+  // Sort events by fixture logic
   events.sort((a, b) => {
-    const dateA = new Date(`${a.date} ${a.time}`);
-    const dateB = new Date(`${b.date} ${b.time}`);
-    return dateA - dateB;
+    const ka = getEventSortKey(a);
+    const kb = getEventSortKey(b);
+    if (ka[0] !== kb[0]) return ka[0] - kb[0];
+    return ka[1] - kb[1];
   });
   container.innerHTML = events.map((event, idx) => {
     const { status, badgeClass } = getEventStatus(event);
