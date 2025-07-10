@@ -181,7 +181,7 @@ function getEventStatus(event) {
     else if (status === 'TBD') hasTBD = true;
   }
   if (hasLive) return { status: 'Live', badgeClass: 'status-live' };
-  if (hasUpcoming) return { status: 'Upcoming', badgeClass: 'status-upcoming' };
+  if (hasUpcoming) return { status: 'Scheduled', badgeClass: 'status-upcoming' };
   if (!hasUpcoming && !hasTBD && allFixtures.length > 0) return { status: 'Completed', badgeClass: 'status-completed' };
   return { status: 'Upcoming', badgeClass: 'status-upcoming' };
 }
