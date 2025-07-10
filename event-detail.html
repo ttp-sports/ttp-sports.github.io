@@ -97,6 +97,20 @@
           container.innerHTML = '<div class="loading">Event not found.</div>';
           return;
         }
+        // Check for TBD in all fixtures
+        let allFixtures = [];
+        if (event.categories && Array.isArray(event.categories)) {
+          event.categories.forEach(cat => {
+            if (Array.isArray(cat.fixtures)) allFixtures = allFixtures.concat(cat.fixtures);
+          });
+        } else if (Array.isArray(event.fixtures)) {
+          allFixtures = event.fixtures;
+        }
+        const hasTBD = allFixtures.length === 0 || allFixtures.some(f => (f.date === 'TBD' || f.time === 'TBD' || f.venue === 'TBD'));
+        if (hasTBD) {
+          container.innerHTML = `<div class="event-detail-title">${event.name}</div><div class="loading">Schedule is yet to be published.</div>`;
+          return;
+        }
         if (event.categories && Array.isArray(event.categories)) {
           container.innerHTML = `
             <div class="event-detail-title">${event.name}</div>

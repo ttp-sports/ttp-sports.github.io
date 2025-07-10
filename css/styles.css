@@ -708,3 +708,37 @@ h2.section-title {
     height: 2rem;
   }
 }
+
+/* Responsive event details table fix */
+.event-detail-container .fixtures-table {
+  table-layout: fixed;
+  width: 100%;
+}
+.event-detail-container .fixtures-table th,
+.event-detail-container .fixtures-table td {
+  /* Remove truncation styles */
+  overflow: visible;
+  text-overflow: unset;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 120px;
+}
+.event-detail-container .fixtures-table td:last-child {
+  max-width: 140px;
+}
+@media (max-width: 600px) {
+  .event-detail-container .fixtures-table th,
+  .event-detail-container .fixtures-table td {
+    font-size: 0.95rem;
+    max-width: 80px;
+    padding: 4px 4px;
+    /* Remove truncation styles for mobile */
+    overflow: visible;
+    text-overflow: unset;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .event-detail-container .fixtures-table td:last-child {
+    max-width: 90px;
+  }
+}

@@ -1,41 +1,144 @@
 [
-  {
-    "id": "carroms",
-    "name": "Carroms",
-    "categories": [
-      {
-        "label": "Men",
-        "fixtures": [
-          {
-            "teamA": "Team Alpha",
-            "teamB": "Team Beta",
-            "date": "TBD",
-            "time": "TBD",
-            "venue": "TBD"
-          },
-          {
-            "teamA": "Team Alpha2",
-            "teamB": "Team Beta2",
-            "date": "TBD",
-            "time": "TBD",
-            "venue": "TBD"
-          }
-        ]
-      },
-      {
-        "label": "Women",
-        "fixtures": [
-          {
-            "teamA": "Team Gamma",
-            "teamB": "Team Delta",
-            "date": "TBD",
-            "time": "TBD",
-            "venue": "TBD"
-          }
-        ]
-      }
-    ]
-  },
+{
+  "id": "carroms",
+  "name": "Carroms",
+  "categories": [
+    {
+      "label": "Men",
+      "fixtures": [
+        {
+          "teamA": "Player MA1",
+          "teamB": "Player MB1",
+          "date": "22/07/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Player MA2",
+          "teamB": "Player MB2",
+          "date": "23/07/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Player MA3",
+          "teamB": "Player MB3",
+          "date": "24/07/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Player MA4",
+          "teamB": "Player MB4",
+          "date": "29/07/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Winner M1 vs Winner M2",
+          "teamB": "Drawing lots if required",
+          "date": "31/07/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Winner M3 vs Winner M4",
+          "teamB": "Drawing lots if required",
+          "date": "05/08/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Winner M5",
+          "teamB": "Winner M6",
+          "date": "06/08/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        }
+      ]
+    },
+    {
+      "label": "Women",
+      "fixtures": [
+        {
+          "teamA": "Player WA1",
+          "teamB": "Player WB1",
+          "date": "22/07/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Player WA2",
+          "teamB": "Player WB2",
+          "date": "23/07/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Player WA3",
+          "teamB": "Player WB3",
+          "date": "24/07/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Player WA4",
+          "teamB": "Player WB4",
+          "date": "29/07/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Winner W1 vs Winner W2",
+          "teamB": "Drawing lots if required",
+          "date": "31/07/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Winner W3 vs Winner W4",
+          "teamB": "Drawing lots if required",
+          "date": "05/08/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Winner W5",
+          "teamB": "Winner W6",
+          "date": "06/08/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        }
+      ]
+    },
+    {
+      "label": "Mixed Doubles",
+      "fixtures": [
+        {
+          "teamA": "Pair DA1 & DA2",
+          "teamB": "Pair DB1 & DB2",
+          "date": "30/07/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Pair DA3 & DA4",
+          "teamB": "Pair DB3 & DB4",
+          "date": "30/07/2025",
+          "time": "1:00pm",
+          "venue": "ThinkPalm"
+        },
+        {
+          "teamA": "Winner D1",
+          "teamB": "Winner D2",
+          "date": "07/08/2025",
+          "time": "12:30pm",
+          "venue": "ThinkPalm"
+        }
+      ]
+    }
+  ]
+},
   {
     "id": "chess",
     "name": "Chess",
@@ -44,18 +147,53 @@
         "label": "Men",
         "fixtures": [
           {
-            "teamA": "Team Epsilon",
-            "teamB": "Team Zeta",
-            "date": "TBD",
-            "time": "TBD",
-            "venue": "TBD"
+            "teamA": "Player MA1",
+            "teamB": "Player MB1",
+            "date": "23/07/2025",
+            "time": "12:30pm",
+            "venue": "ThinkPalm"
           },
           {
-            "teamA": "PlayerM1",
-            "teamB": "PlayerM2",
-            "date": "TBD",
-            "time": "TBD",
-            "venue": "Himalaya"
+            "teamA": "Player MA2",
+            "teamB": "Player MB2",
+            "date": "23/07/2025",
+            "time": "12:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Player MA3",
+            "teamB": "Player MB3",
+            "date": "23/07/2025",
+            "time": "12:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Player MA4",
+            "teamB": "Player MB4",
+            "date": "23/07/2025",
+            "time": "12:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner M1 vs Winner M2",
+            "teamB": "Drawing lots if required",
+            "date": "24/07/2025",
+            "time": "12:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner M3 vs Winner M4",
+            "teamB": "Drawing lots if required",
+            "date": "24/07/2025",
+            "time": "12:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner M5",
+            "teamB": "Winner M6",
+            "date": "29/07/2025",
+            "time": "12:30pm",
+            "venue": "ThinkPalm"
           }
         ]
       },
@@ -63,10 +201,52 @@
         "label": "Women",
         "fixtures": [
           {
-            "teamA": "Player1",
-            "teamB": "Player2",
-            "date": "TBD",
-            "time": "TBD",
+            "teamA": "Player WA1",
+            "teamB": "Player WB1",
+            "date": "23/07/2025",
+            "time": "1:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Player WA2",
+            "teamB": "Player WB2",
+            "date": "23/07/2025",
+            "time": "1:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Player WA3",
+            "teamB": "Player WB3",
+            "date": "23/07/2025",
+            "time": "1:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Player WA4",
+            "teamB": "Player WB4",
+            "date": "23/07/2025",
+            "time": "1:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner W1 vs Winner W2",
+            "teamB": "Drawing lots if required",
+            "date": "24/07/2025",
+            "time": "1:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner W3 vs Winner W4",
+            "teamB": "Drawing lots if required",
+            "date": "24/07/2025",
+            "time": "1:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner W5",
+            "teamB": "Winner W6",
+            "date": "29/07/2025",
+            "time": "1:00pm",
             "venue": "ThinkPalm"
           }
         ]
@@ -81,17 +261,109 @@
         "label": "Men",
         "fixtures": [
           {
-            "teamA": "Team Eta",
-            "teamB": "Team Theta",
-            "date": "TBD",
-            "time": "TBD",
-            "venue": "TBD"
+            "teamA": "Sub-team MA1",
+            "teamB": "Sub-team MB1",
+            "date": "29/07/2025",
+            "time": "5:45pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Sub-team MA2",
+            "teamB": "Sub-team MB2",
+            "date": "29/07/2025",
+            "time": "6:15pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Sub-team MA3",
+            "teamB": "Sub-team MB3",
+            "date": "30/07/2025",
+            "time": "5:45pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Sub-team MA4",
+            "teamB": "Sub-team MB4",
+            "date": "30/07/2025",
+            "time": "6:15pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner M1 vs Winner M2",
+            "teamB": "Drawing lots if required",
+            "date": "31/07/2025",
+            "time": "5:45pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner M3 vs Winner M4",
+            "teamB": "Drawing lots if required",
+            "date": "31/07/2025",
+            "time": "6:15pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner M5",
+            "teamB": "Winner M6",
+            "date": "06/08/2025",
+            "time": "5:45pm",
+            "venue": "ThinkPalm"
           }
         ]
       },
       {
         "label": "Women",
-        "fixtures": []
+        "fixtures": [
+          {
+            "teamA": "Sub-team WA1",
+            "teamB": "Sub-team WB1",
+            "date": "29/07/2025",
+            "time": "5:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Sub-team WA2",
+            "teamB": "Sub-team WB2",
+            "date": "29/07/2025",
+            "time": "6:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Sub-team WA3",
+            "teamB": "Sub-team WB3",
+            "date": "30/07/2025",
+            "time": "5:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Sub-team WA4",
+            "teamB": "Sub-team WB4",
+            "date": "30/07/2025",
+            "time": "6:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner W1 vs Winner W2",
+            "teamB": "Drawing lots if required",
+            "date": "31/07/2025",
+            "time": "5:30pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner W3 vs Winner W4",
+            "teamB": "Drawing lots if required",
+            "date": "31/07/2025",
+            "time": "6:00pm",
+            "venue": "ThinkPalm"
+          },
+          {
+            "teamA": "Winner W5",
+            "teamB": "Winner W6",
+            "date": "06/08/2025",
+            "time": "5:30pm",
+            "venue": "ThinkPalm"
+          }
+        ]
       }
     ]
   },
