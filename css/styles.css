@@ -711,34 +711,37 @@ h2.section-title {
 
 /* Responsive event details table fix */
 .event-detail-container .fixtures-table {
-  table-layout: fixed;
-  width: 100%;
+  table-layout: auto;
+  width: max-content;
+  min-width: 100%;
 }
 .event-detail-container .fixtures-table th,
 .event-detail-container .fixtures-table td {
-  /* Remove truncation styles */
   overflow: visible;
   text-overflow: unset;
-  white-space: normal;
-  word-break: break-word;
-  max-width: 120px;
+  white-space: nowrap;
+  word-break: normal;
+  max-width: none;
 }
 .event-detail-container .fixtures-table td:last-child {
-  max-width: 140px;
+  max-width: none;
+}
+.event-detail-container .fixtures-list {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
 }
 @media (max-width: 600px) {
   .event-detail-container .fixtures-table th,
   .event-detail-container .fixtures-table td {
     font-size: 0.95rem;
-    max-width: 80px;
+    max-width: none;
     padding: 4px 4px;
-    /* Remove truncation styles for mobile */
     overflow: visible;
     text-overflow: unset;
-    white-space: normal;
-    word-break: break-word;
+    white-space: nowrap;
+    word-break: normal;
   }
   .event-detail-container .fixtures-table td:last-child {
-    max-width: 90px;
+    max-width: none;
   }
 }
